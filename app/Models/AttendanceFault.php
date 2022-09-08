@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class AttendanceFault extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'fault_reason'
+    ];
 }
