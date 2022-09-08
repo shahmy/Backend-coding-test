@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/show-employees-attendance',[AttendanceController::class, 'showAttendanceDetails'])->name('show.employees.attendance');
+
+Route::get('/show-duplicate-eliments',[AttendanceController::class, 'printDuplicateEliments'])->name('show.duplicate.eliments');
+
 
 Route::get('/', function () {
     return view('welcome');

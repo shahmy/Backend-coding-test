@@ -1,8 +1,8 @@
 <?php
 
-namespace Src\AppHumanResources\Attendance\Application;
+namespace App\Src\AppHumanResources\Attendance\Application;
 
-use src\AppHumanResources\Attendance\Application\Domain\Attendance;
+use App\Src\AppHumanResources\Attendance\Application\Domain\Attendance;
 
 class AttendanceService{
 

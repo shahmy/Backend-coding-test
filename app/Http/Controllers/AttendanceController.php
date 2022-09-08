@@ -7,7 +7,7 @@ use App\Models\Attendance;
 use Illuminate\Http\Request;
 use App\Imports\AttendancesImport;
 use Maatwebsite\Excel\Facades\Excel;
-use src\AppHumanResources\Attendance\Application\AttendanceService;
+use App\Src\AppHumanResources\Attendance\Application\AttendanceService;
 
 class AttendanceController extends Controller
 {
@@ -23,6 +23,11 @@ class AttendanceController extends Controller
         $this->attendanceService = $attendanceService;
     }
 
+    /**
+     * Challenge 1:
+     * Create an API endpoint to upload excel attendance and store data in the database
+     */
+
     //import excel to store attendance details
 
     public function importAttendanceDetails(Request $request){
@@ -35,6 +40,12 @@ class AttendanceController extends Controller
         return response()->json(['success' => 'Record Imported'], 200);
 
     }
+
+    /**
+     * Challenge 1:
+     * Create an API endpoint to return attendance information of an employee with total
+     * working hours.
+     */
 
     public function listAttendances(){
 
@@ -54,6 +65,35 @@ class AttendanceController extends Controller
         $attDetails = $this->attendanceService->showAttendance();
         return view('show_attendance',compact('attDetails'));
     }
+
+
+    /**
+     * Challenge 2
+     * Given an array a[] of size N which contains elements from 0 to N-1, you need to find all
+     * the elements occurring more than once in the given array
+     */
+
+     function printDuplicateEliments(){
+
+        $elements = array(2,3,2,1,6,3,6,8);
+
+        echo 'Following are Duplicate Numbers in the given Array <br>';
+
+        for($x=0; $x < count($elements); $x++){
+
+            for($y=$x+1; $y < count($elements); $y++){
+
+                if($elements[$x] == $elements[$y]){
+
+                    print($elements[$y] . ",");
+                }
+            }
+        }
+
+
+     }
+
+
 
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace src\AppHumanResources\Attendance\Application\Domain;
+namespace App\Src\AppHumanResources\Attendance\Application\Domain;
 
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
