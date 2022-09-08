@@ -2,14 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
+use App\Models\Attendance;
 use Illuminate\Http\Request;
 use App\Imports\AttendancesImport;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Models\Employee;
-use App\Models\Attendance;
+use src\AppHumanResources\Attendance\Application\AttendanceService;
 
 class AttendanceController extends Controller
 {
+
+    /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+
+    public function __construct(AttendanceService $attendanceService){
+
+        $this->attendanceService = $attendanceService;
+    }
+
     //import excel to store attendance details
 
     public function importAttendanceDetails(Request $request){
@@ -33,4 +46,15 @@ class AttendanceController extends Controller
             ]);
 
     }
+
+    // this method is called from AttendanceService
+
+    public function showAttendanceDetails(){
+
+        $attDetails = $this->attendanceService->showAttendance();
+        return view('show_attendance',compact('attDetails'));
+    }
+
+
+
 }
